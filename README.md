@@ -1,36 +1,320 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# mini_acc_app
 
-## Getting Started
+نظام محاسبة عربي بسيط لإدارة:
 
-First, run the development server:
+- الواردات
+- المصروفات
+- الجهات المالية
+- التقارير الشهرية
+
+تم بناء المشروع باستخدام:
+
+- Next.js (App Router)
+- TypeScript
+- MariaDB
+- TypeORM
+
+---
+
+# المميزات الرئيسية
+
+- واجهة عربية كاملة RTL
+- نظام محاسبي بسيط بدون تعقيدات محاسبية
+- دعم العملات:
+  - الدولار USD
+  - الشيكل ILS
+- احتساب الرصيد بشكل ديناميكي
+- تقارير شهرية ذكية
+- دعم تجميع الفئات
+- Clean Architecture
+- Backend باستخدام Route Handlers فقط
+- قابل للتوسعة والإنتاج Production Ready
+- امكانية التصدير الى اكسل
+
+---
+
+# متطلبات التشغيل (Windows)
+
+## نظام التشغيل
+
+- Windows 10 أو Windows 11
+- يفضل Windows 11 64-bit
+
+---
+
+## Node.js
+
+### الإصدار المطلوب
+
+```bash
+Node.js v20.11.1 LTS
+```
+
+### التحقق من الإصدار
+
+```bash
+node -v
+```
+
+### التحميل
+
+```txt
+https://nodejs.org
+```
+
+---
+
+## npm
+
+يأتي تلقائياً مع Node.js
+
+### الإصدار المقترح
+
+```bash
+npm 10+
+```
+
+### التحقق من الإصدار
+
+```bash
+npm -v
+```
+
+---
+
+## MariaDB Server
+
+### الإصدار المطلوب
+
+```bash
+MariaDB 11.4+
+```
+
+### التحميل
+
+```txt
+https://mariadb.org/download/
+```
+
+### أثناء التثبيت
+
+قم بتفعيل:
+
+- MariaDB Server
+- Command Line Client
+
+### معلومات مهمة أثناء التثبيت
+
+احفظ:
+
+- اسم المستخدم
+- كلمة المرور
+- المنفذ
+
+المنفذ الافتراضي:
+
+```txt
+3306
+```
+
+### التحقق من التثبيت
+
+```bash
+mysql --version
+```
+
+---
+
+## Git
+
+### الإصدار المقترح
+
+```bash
+Git 2.45+
+```
+
+### التحميل
+
+```txt
+https://git-scm.com/download/win
+```
+
+### التحقق من الإصدار
+
+```bash
+git --version
+```
+
+---
+
+# إنشاء قاعدة البيانات
+
+افتح MariaDB Command Line أو أي أداة إدارة قواعد بيانات ثم نفذ:
+اذا كانت mysql مضافة الى المسار اكتب الأمر مباشرة
+اذا لم تكن مضافة افتج مجلد ماريا دي بي وادخل الى مجلد bin ثم اكتب الأمر التالي
+```bash
+mysql -u root -p
+```
+ادخل كلمة المرور واضغط Enter
+
+```sql
+CREATE DATABASE mini_acc_db
+CHARACTER SET utf8mb4
+COLLATE utf8mb4_unicode_ci;
+```
+
+---
+
+# إنشاء المشروع
+
+## استنساخ المشروع
+
+```bash
+git clone https://github.com/smmartdev/mini_acc_app
+```
+
+---
+
+## الدخول إلى المشروع
+
+```bash
+cd mini_acc_app
+```
+
+---
+
+# تثبيت الحزم
+
+```bash
+npm install
+```
+
+---
+
+# الحزم الأساسية المستخدمة
+
+## Backend
+
+```txt
+next
+react
+react-dom
+typescript
+typeorm
+mysql2
+reflect-metadata
+class-validator
+class-transformer
+```
+
+---
+
+## Frontend
+
+```txt
+tailwindcss
+postcss
+autoprefixer
+```
+
+---
+
+# إعداد ملف البيئة
+
+أنشئ ملف:
+
+```txt
+.env
+```
+
+ثم أضف:
+
+```env
+DB_HOST=localhost
+DB_PORT=3306
+DB_USERNAME=root
+DB_PASSWORD=your_password
+DB_DATABASE=mini_acc_db
+
+NEXT_PUBLIC_APP_NAME=mini_acc_app
+```
+
+---
+
+# تشغيل المشروع
+
+## وضع التطوير
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+ثم افتح:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```txt
+http://localhost:3000
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+# بناء المشروع للإنتاج
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+npm run build
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+# تشغيل نسخة الإنتاج
 
-## Deploy on Vercel
+```bash
+npm start
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+
+# API Endpoints
+
+## Transactions
+
+```http
+POST   /api/transactions
+PUT    /api/transactions/:id
+DELETE /api/transactions/:id
+GET    /api/transactions
+```
+
+---
+
+## Entities
+
+```http
+POST /api/entities
+GET  /api/entities
+```
+
+---
+
+## Categories
+
+```http
+GET /api/categories
+```
+
+---
+
+## Reports
+
+```http
+GET /api/report?month=YYYY-MM&entityId=optional
+```
+
+---
+
+# الترخيص
+
+```txt
+MIT License
+```
