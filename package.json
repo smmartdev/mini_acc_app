@@ -6,19 +6,27 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "next lint",
+    "seed": "npx ts-node --project tsconfig.seed.json lib/db/seed.ts"
   },
   "dependencies": {
+    "jszip": "^3.10.1",
+    "mysql2": "^3.22.3",
     "next": "16.2.4",
     "react": "19.2.4",
-    "react-dom": "19.2.4"
+    "react-dom": "19.2.4",
+    "reflect-metadata": "^0.2.2",
+    "typeorm": "^0.3.28",
+    "xlsx-js-style": "^1.2.0"
   },
   "devDependencies": {
-    "@types/node": "^20",
+    "@types/node": "^20.19.39",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "dotenv": "^17.4.2",
     "eslint": "^9",
     "eslint-config-next": "16.2.4",
+    "ts-node": "^10.9.2",
     "typescript": "^5"
   }
 }
